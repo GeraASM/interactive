@@ -85,11 +85,12 @@ body {
     cursor: pointer;
 }
 
-.option:hover {
+.option:hover, .option:focus {
     background-color: #fff;
+    outline: none;
 }
 
-.option:hover input {
+.option:hover input, .option:focus input {
     color: var(--clr-grey-900);
 }
 
@@ -127,6 +128,10 @@ body {
 
 .btn-feedback:hover {
     background-color: #fff;
+}
+
+.btn-feedback:focus {
+    outline: 1px solid var(--clr-orange-disabled);
 }
 
 .thanks {
