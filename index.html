@@ -20,43 +20,29 @@
     to help us improve our offering!</p>
                 <form id="form" class="interactive__form">
                     <ul class="options">
-                        <li><input type="button" value="1"></li>
-                        <li><input type="button" value="2"></li>
-                        <li><input type="button" value="3"></li>
-                        <li><input type="button" value="4"></li>
-                        <li><input type="button" value="5"></li>
+                        <li class="option"><input type="button" value="1"></li>
+                        <li class="option"><input type="button" value="2"></li>
+                        <li class="option"><input type="button" value="3"></li>
+                        <li class="option"><input type="button" value="4"></li>
+                        <li class="option"><input type="button" value="5"></li>
                     </ul>
-                    <button class="btn-feedback" type="submit">SUBMIT</button>
+                    <button class="btn-feedback" type="button" disabled>SUBMIT</button>
                 </form>
             </div>
+            <div class="interactive thanks">
+                <figure class="thanks__figure">
+                    <img src="./images/illustration-thank-you.svg" alt="Thanks" class="thanks__img">
+                </figure>
+                <div class="thanks__selected">
+                    <p class="quality">You selected <span id="number"></span> out of 5</p>
+                </div>
+                <div class="thanks__texts">
+                    <h2 class="thanks__title">Thank you!</h2>
+                    <p class="thanks__text">We appreciate you taking the time to give a rating. If you ever need more support, 
+    don’t hesitate to get in touch!</p>
+                </div>
+            </div>
         </main>
-    <!-- Rating state start -->
-<!-- 
-   
-
-    
-
-    1 2 3 4 5
-
-    Submit -->
-
-    <!-- Rating state end -->
-
-    <!-- Thank you state start -->
-
-    You selected <!-- Add rating here --> out of 5
-
-    Thank you!
-
-    We appreciate you taking the time to give a rating. If you ever need more support, 
-    don’t hesitate to get in touch!
-
-    <!-- Thank you state end -->
-
-    
-    <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-        Coded by <a href="#">Your Name Here</a>.
-    </div>
+        <script defer src="js/main.js"></script>
     </body>
 </html>

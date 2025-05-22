@@ -2,12 +2,11 @@
 
 *, *::after, *::before {box-sizing: border-box; margin: 0; padding: 0}
 :root {
-    --clr-white: #ffffffff;
-    --clr-black: #00000000;
     --clr-grey-950: #131518;
     --clr-grey-900: #262E38;
     --clr-grey-500: #969FAD;
     --clr-orange-500: #FC7614;
+    --clr-orange-disabled: #f0b285;
     --clr-linear-gradient: linear-gradient(to bottom right, #232A34, #181E27);
     --spacing-0: 0px;
     --spacing-100: 8px;
@@ -20,11 +19,12 @@
 
     --spacing-top: 24px;
     --spacing-options: 16px;
+    --size-option: 42px;
     --fnt-title: 700 24px/30px "Overpass", sans-serif;
     --fnt-text: 400 14px/22px "Overpass", sans-serif;
     --fnt-option: 700 14px/18px "Overpass", sans-serif;
     --fnt-submit: 700 14px/18px "Overpass", sans-serif;
-    --letter-spacing-submit: 1.87px;
+    --letter-spacing-submit: 0.17px;
 }
 
 body {
@@ -39,6 +39,8 @@ body {
     border-radius: var(--spacing-200);
     padding: var(--spacing-300);
     background-image: var(--clr-linear-gradient);
+    width: 90%;
+    max-width: 412px;
 }
 
 .interactive__figure {
@@ -73,20 +75,40 @@ body {
     gap: var(--spacing-options);
 }
 
-.options li {
-    width: 42px;
-    height: 42px;
+.option {
+    width: var(--size-option); height: var(--size-option);
+    min-width: var(--size-option); min-height: var(--size-option);
     display: grid;
     place-items: center center;
     border-radius: 50%;
     background-color: var(--clr-grey-900);
+    cursor: pointer;
 }
 
-.options li input {
+.option:hover {
+    background-color: #fff;
+}
+
+.option:hover input {
+    color: var(--clr-grey-900);
+}
+
+
+.option input {
     background-color: transparent;
     border: none;
     outline: none;
     color: var(--clr-grey-500);
+    font: var(--fnt-option);
+    cursor: pointer;
+}
+
+.active {
+    background-color: var(--clr-orange-500);
+}
+
+.active input {
+    color: var(--clr-grey-900);
 }
 
 .btn-feedback {
@@ -99,4 +121,117 @@ body {
     border: none;
     width: 100%;
     letter-spacing: var(--letter-spacing-submit);
+    cursor: pointer;
+}
+
+
+.btn-feedback:hover {
+    background-color: #fff;
+}
+
+.thanks {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-300);
+    padding: var(--spacing-400) var(--spacing-200);
+}
+
+.thanks__figure {
+    width: fit-content;
+    margin-inline: auto;
+}
+
+.thanks__img {
+    display: block;
+    object-fit: contain;
+}
+
+.thanks__selected {
+    padding: 0 var(--spacing-200) ;
+    background-color: var(--clr-grey-900);
+    border-radius: 22.5px;
+    height: var(--spacing-400);
+    display: grid;
+    place-items: center;
+}
+
+.quality {
+    color: var(--clr-orange-500);
+    font-size: var(--fnt-text);
+}
+
+.thanks__texts {
+    text-align: center;
+}
+
+.thanks__title {
+    font: var(--fnt-title);
+    color: #fff;
+}
+
+.thanks__text {
+    margin-top: var(--spacing-200);
+    font: var(--fnt-text);
+    color: var(--clr-grey-500);
+}
+
+.btn-feedback:disabled {
+    background-color: var(--clr-orange-disabled);
+}
+
+@media screen and (min-width: 767px) {
+    .interactive {
+        padding: var(--spacing-400) var(--spacing-300);
+        height: 416px;
+    }
+
+    .interactive__figure {
+        width: 48px; height: 48px; 
+    }
+
+    .options {
+        --spacing-options: 24px;
+    }
+
+    .options li {
+        --size-option: 51px;
+        letter-spacing: 0.2px;
+    }
+
+    .interactive__title {
+        --fnt-title: 700 28px/35px "Overpass", sans-serif;
+        --spacing-top: 32px;
+    }
+
+    .interactive__text {
+        --fnt-text: 400 15px/22px "Overpass", sans-serif;
+    }
+
+    .btn-feedback {
+        --spacing-top: 32px;
+        --letter-spacing-submit: 1.87px;
+        --fnt-text: 400 15px/22px "Overpass", sans-serif;
+    }
+
+    .thanks__img {
+        width: 162px;
+    }
+
+    .quality {
+        --fnt-text: 400 15px/22px "Overpass", sans-serif;
+    }
+
+    .thanks__title {
+        --fnt-title: 700 28px/35px "Overpass", sans-serif;
+    }
+
+    .thanks__text {
+        --fnt-text: 400 15px/22px "Overpass", sans-serif;
+    }
+
+    .thanks {
+        padding: var(--spacing-500) var(--spacing-400);
+        gap: var(--spacing-400);
+    }
 }
